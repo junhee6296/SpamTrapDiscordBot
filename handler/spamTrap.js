@@ -169,7 +169,7 @@ function registerSpamTrapHandler(client, config) {
         await guild.members.ban(userId, {
           reason: banReason,
           // 최근 스팸 메시지도 같이 지우려면 아래 값을 60, 3600 등으로 바꾸세요.
-          deleteMessageSeconds: 0,
+          deleteMessageSeconds: 3600, // 최근 1시간(3600초) 동안의 메시지 삭제
         });
         banSuccess = true;
       } catch (error) {
